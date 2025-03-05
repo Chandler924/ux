@@ -1,0 +1,95 @@
+<div class="modal fade" id="addTransactionModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加记账</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="transaction-type-tabs mb-3">
+                    <button class="btn btn-primary active" data-type="expense">支出</button>
+                    <button class="btn btn-outline-primary" data-type="income">收入</button>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">金额</label>
+                    <div class="amount-input">
+                        <span class="currency">¥</span>
+                        <input type="number" class="form-control form-control-lg" placeholder="0.00" step="0.01">
+                    </div>
+                </div>
+
+                <div class="category-grid mb-3">
+                    <!-- 支出分类 -->
+                    <div class="expense-categories">
+                        <div class="category-item active">
+                            <i class="bi bi-cart"></i>
+                            <span>购物</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-cup-hot"></i>
+                            <span>餐饮</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-bus-front"></i>
+                            <span>交通</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-house"></i>
+                            <span>住房</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-phone"></i>
+                            <span>通讯</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-heart-pulse"></i>
+                            <span>医疗</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-book"></i>
+                            <span>教育</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-gift"></i>
+                            <span>娱乐</span>
+                        </div>
+                    </div>
+                    <!-- 收入分类 -->
+                    <div class="income-categories" style="display: none;">
+                        <div class="category-item">
+                            <i class="bi bi-wallet2"></i>
+                            <span>工资</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-piggy-bank"></i>
+                            <span>奖金</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <span>投资</span>
+                        </div>
+                        <div class="category-item">
+                            <i class="bi bi-cash-coin"></i>
+                            <span>其他</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">备注</label>
+                    <input type="text" class="form-control" placeholder="添加备注信息">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">日期时间</label>
+                    <input type="datetime-local" class="form-control" value="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="saveTransaction">保存</button>
+            </div>
+        </div>
+    </div>
+</div> 

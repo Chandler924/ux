@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能记账助手</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/components/add-transaction.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --dark-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+        }
+        
+        .balance-card {
+            background: linear-gradient(135deg, var(--primary-color), #4f46e5);
+            color: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+            margin-bottom: 24px;
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 1rem;
+        }
+        
+        .transaction-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        
+        .transaction-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .quick-actions {
+            margin-bottom: 24px;
+        }
+        
+        .action-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: var(--card-bg);
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary-color);
+            transition: all 0.2s;
+        }
+        
+        .action-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .header {
+            margin-bottom: 20px;
+        }
+        
+        .transactions {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .transaction-header {
+            margin-bottom: 16px;
+        }
+        
+        .expense-badge {
+            background-color: #ffebee;
+            color: #f44336;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .income-badge {
+            background-color: #e8f5e9;
+            color: #4caf50;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .app-container {
+            max-width: 540px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .stats-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+            background-color: rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部用户信息 -->
+        <header class="header">
+            <div class="user-info">
+                <h2>Hi, User</h2>
+                <p>欢迎回来</p>
+            </div>
+            <div class="avatar">
+                <i class="bi bi-person-circle" style="font-size: 40px; color: var(--primary-color);"></i>
+            </div>
+        </header>
+
+        <!-- 余额卡片 -->
+        <div class="balance-card">
+            <small>当前余额</small>
+            <h1>¥1,542.04</h1>
+            <div class="balance-info">
+                <div class="balance-info-item">
+                    <small>收入</small>
+                    <p class="mb-0">¥3,420.40</p>
+                </div>
+                <div class="balance-info-item">
+                    <small>支出</small>
+                    <p class="mb-0">¥1,878.36</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 支出统计卡片 -->
+        <div class="stats-card">
+            <h5 class="mb-3">本月支出统计</h5>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <span>餐饮</span>
+                    <span>¥845.30</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" style="width: 45%"></div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <span>购物</span>
+                    <span>¥556.80</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-info" style="width: 30%"></div>
+                </div>
+            </div>
+            <div class="mb-0">
+                <div class="d-flex justify-content-between mb-1">
+                    <span>交通</span>
+                    <span>¥224.40</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" style="width: 15%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快捷操作 -->
+        <div class="quick-actions">
+            <div class="action-grid">
+                <div class="action-item">
+                    <button class="action-button">
+                        <i class="bi bi-plus-circle"></i>
+                    </button>
+                    <span>收入</span>
+                </div>
+                <div class="action-item">
+                    <button class="action-button">
+                        <i class="bi bi-dash-circle"></i>
+                    </button>
+                    <span>支出</span>
+                </div>
+                <div class="action-item">
+                    <button class="action-button">
+                        <i class="bi bi-arrow-repeat"></i>
+                    </button>
+                    <span>转账</span>
+                </div>
+                <div class="action-item">
+                    <button class="action-button">
+                        <i class="bi bi-pie-chart"></i>
+                    </button>
+                    <span>统计</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最近交易 -->
+        <div class="transactions">
+            <div class="transaction-header">
+                <h5 class="mb-0">最近交易</h5>
+                <a href="transactions.html" class="text-primary">查看全部</a>
+            </div>
+            <div class="transaction-list">
+                <!-- 示例交易项目 -->
+                <div class="transaction-item d-flex align-items-center">
+                    <div class="category-icon bg-primary">
+                        <i class="bi bi-cart"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-0">超市购物</h6>
+                                <small class="text-secondary">今天 14:30</small>
+                            </div>
+                            <div class="text-end">
+                                <span class="text-danger">-¥156.80</span>
+                                <div><span class="expense-badge">支出</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="transaction-item d-flex align-items-center">
+                    <div class="category-icon bg-info">
+                        <i class="bi bi-cup-hot"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-0">午餐</h6>
+                                <small class="text-secondary">今天 12:15</small>
+                            </div>
+                            <div class="text-end">
+                                <span class="text-danger">-¥28.00</span>
+                                <div><span class="expense-badge">支出</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="transaction-item d-flex align-items-center">
+                    <div class="category-icon bg-success">
+                        <i class="bi bi-cash-coin"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-0">工资</h6>
+                                <small class="text-secondary">昨天 09:00</small>
+                            </div>
+                            <div class="text-end">
+                                <span class="text-success">+¥3,420.40</span>
+                                <div><span class="income-badge">收入</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <nav class="nav-bottom">
+            <div class="nav-items">
+                <a href="index.html" class="nav-item active">
+                    <i class="bi bi-house"></i>
+                    <span>首页</span>
+                </a>
+                <a href="pages/statistics.html" class="nav-item">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>统计</span>
+                </a>
+                <div class="nav-item">
+                    <button type="button" class="add-button">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+                <a href="pages/budget.html" class="nav-item">
+                    <i class="bi bi-calendar3"></i>
+                    <span>预算</span>
+                </a>
+                <a href="pages/profile.html" class="nav-item">
+                    <i class="bi bi-person"></i>
+                    <span>我的</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/modal-init.js"></script>
+</body>
+</html>

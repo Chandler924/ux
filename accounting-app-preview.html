@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记账APP界面预览</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --dark-bg: #1a1b1e;
+            --card-bg: #25262b;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .navbar {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5;
+        }
+        .text-secondary {
+            color: var(--text-secondary) !important;
+        }
+        .floating-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 1rem;
+        }
+        .progress {
+            background-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">记账助手</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">概览</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">记录</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">统计</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">预算</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="container">
+        <!-- 总览卡片 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title mb-4">本月概览</h5>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column">
+                            <span class="text-secondary">支出</span>
+                            <h3 class="mt-2">¥3,426.50</h3>
+                            <small class="text-secondary">比上月 <i class="bi bi-arrow-up-right"></i> 12.5%</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column">
+                            <span class="text-secondary">预算剩余</span>
+                            <h3 class="mt-2">¥1,573.50</h3>
+                            <div class="progress mt-2" style="height: 6px;">
+                                <div class="progress-bar bg-success" style="width: 68%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column">
+                            <span class="text-secondary">待还账单</span>
+                            <h3 class="mt-2">¥0.00</h3>
+                            <small class="text-success">无待还账单</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最近交易 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title mb-4">最近交易</h5>
+                <div class="transaction-list">
+                    <!-- 交易项目 -->
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="category-icon bg-primary">
+                            <i class="bi bi-cart"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-0">超市购物</h6>
+                                    <small class="text-secondary">今天 14:30</small>
+                                </div>
+                                <span class="text-danger">-¥156.80</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="category-icon bg-info">
+                            <i class="bi bi-cup-hot"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-0">午餐</h6>
+                                    <small class="text-secondary">今天 12:15</small>
+                                </div>
+                                <span class="text-danger">-¥28.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="category-icon bg-warning">
+                            <i class="bi bi-bus-front"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-0">公交车</h6>
+                                    <small class="text-secondary">今天 08:30</small>
+                                </div>
+                                <span class="text-danger">-¥2.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分类统计 -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title mb-4">支出分类</h5>
+                <div class="category-stats">
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>餐饮</span>
+                            <span>¥1,245.30</span>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-primary" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>购物</span>
+                            <span>¥856.80</span>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-info" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>交通</span>
+                            <span>¥324.40</span>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-warning" style="width: 15%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 悬浮添加按钮 -->
+    <button class="btn btn-primary floating-button">
+        <i class="bi bi-plus-lg"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

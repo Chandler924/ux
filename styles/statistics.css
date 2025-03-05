@@ -1,0 +1,83 @@
+.period-selector {
+    display: flex;
+    gap: 8px;
+}
+
+.period-selector .btn {
+    min-width: 60px;
+}
+
+.stats-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.stats-header {
+    text-align: center;
+}
+
+.stats-header .amount {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 8px 0;
+    display: block;
+}
+
+.chart-section {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.category-stats {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 80px;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.category-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.category-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+}
+
+.category-info h6 {
+    margin: 0 0 8px;
+}
+
+.category-info .progress {
+    width: 120px;
+    height: 4px;
+    background: var(--background-color);
+}
+
+.amount {
+    font-weight: 500;
+} 

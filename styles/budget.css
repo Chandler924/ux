@@ -1,0 +1,65 @@
+.budget-overview {
+    margin-bottom: 24px;
+}
+
+.budget-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.budget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.budget-header .amount {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.budget-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: var(--text-secondary);
+}
+
+.category-budgets {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 80px;
+}
+
+.budget-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.budget-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.budget-item-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.category-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+} 
